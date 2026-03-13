@@ -362,6 +362,12 @@ section.project {
     color: rgb(0, 246, 255);
 }
 
+#AI .project-side {
+    background-color: transparent;
+    border-right: 1px solid rgb(0, 246, 255);
+    color: rgb(0, 246, 255);
+}
+
 
 /*** //영상소개 페이지 끝 *****************************************************************************************/
 
