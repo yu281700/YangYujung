@@ -1,0 +1,490 @@
+@charset "UTF-8";
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 보이는 화면 기준!!!! */
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    font-size: 16px;
+}
+
+/* 각 페이지(section)의 공통 클래스 */
+.page {
+    width: 100%;
+    min-height: 100vh; /* 보이는 화면을 최소 높이로 */
+    height: auto; /* 보이는 화면보다 내용이 많으면 자동으로 높이설정 */
+
+    border-bottom: 1px solid white;
+}
+
+/* 영문에 적용할 클래스 */
+.eng {
+    font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+    background-color: plum;
+    color: #6f6f6f;
+    font-family: "Noto Sans KR", -apple-system, "Segoe UI", "Malgun Gothic", Arial, sans-serif;
+}
+
+header {
+    width: 100%;
+    padding: 0 100px;
+    box-sizing: border-box;
+    height: 100px;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    transition: background .25s ease;
+}
+
+header .title {
+    display: none;
+}
+
+header .gnb {
+    display: flex;
+    justify-content: end;
+}
+
+header .gnb .gnb-menu {
+    /* text-align: right; */
+    margin-top: 40px;
+    display: flex;
+    gap: 10px;
+}
+
+header .gnb .gnb-menu li {
+    /* display: inline-block;
+    margin-left: 10px;
+    margin-top: 40px; */
+
+}
+
+header .gnb .gnb-menu li a {
+    /* line-height: 60px; */
+    padding: 12px 30px;
+    display: block;
+    font-size: 1.375rem;
+    line-height: 1.25;
+    text-align: center;
+    letter-spacing: -1.5px;
+    border-radius: 60px;
+    font-family: "Noto Sans", sans-serif;
+    /* 영문폰트적용! */
+    font-weight: 300;
+}
+
+header .gnb .gnb-menu li.active a {
+    background-color: #fff;
+    font-weight: 400;
+}
+
+/* 모바일 메뉴 */
+header:has(.mobile-btn.active) {background-color: #fff;}
+header .gnb .mobile-btn {
+    display: block;
+    width: 48px;
+    height: 48px;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 12px;
+    right: 0;
+    cursor: pointer;
+    z-index: 1001;
+}
+header .gnb .mobile-btn::before,
+header .gnb .mobile-btn::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 24px;
+    height: 3px;
+    background-color: #4a4a4a;
+    border-radius: 999px;
+    transform: translateX(-50%);
+    transition: top 0.25s ease, transform 0.25s ease;
+}
+
+header .gnb .mobile-btn::before {
+    top: 17px;
+    box-shadow: 0 7px 0 #4a4a4a;
+}
+
+header .gnb .mobile-btn::after {
+    top: 31px;
+}
+
+header .gnb .mobile-btn.active::before {
+    top: 22px;
+    box-shadow: none;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+header .gnb .mobile-btn.active::after {
+    top: 22px;
+    transform: translateX(-50%) rotate(-45deg);
+}
+
+header .gnb .mobile-menu {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 72px;
+    width: 100%;
+    /* height: calc(100vh - 72px); */
+    padding: 10px 24px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+header .gnb .mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+header .gnb .mobile-menu li + li {
+    margin-top: 4px;
+}
+
+header .gnb .mobile-menu li a {
+    display: block;
+    padding: 12px 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.4;
+}
+
+header .gnb .mobile-menu li.active a {
+    color: #37bfe4;
+}
+header .gnb .mobile-btn, header .gnb .mobile-menu {display: none;}
+
+
+#home {
+    background-image: url(img/bg_star.png);
+    background-repeat: no-repeat;
+    background-position: bottom -20px right -50px;
+    background-size: auto;
+    right: 0; bottom: 0;
+    position: relative;
+}
+
+#home .title {
+    position: absolute;
+    /* #home을 기준으로 절대위치!!! */
+    left: 100px;
+    bottom: 100px;
+}
+
+#home .title .name {
+    margin-bottom: 30px;
+}
+
+#home .title .name p {
+    font-size: 2.25rem;
+    letter-spacing: -1px;
+}
+
+#home .title .name h2 {
+    font-size: 4.375rem;
+}
+
+#home .title .name h2 span {
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+#home .title .des {
+    font-size: 1.625rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+}
+
+#home .profile {
+    width: 40%;
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+}
+
+#home .profile img {
+    width: 86%;
+    display: block;
+}
+
+/*** 영상소개 페이지 *****************************************************************************************/
+
+/* 공통으로 사용되는 클래스&디자인 */
+
+section.project {
+    display: flex;
+    
+}
+
+.project .project-side {
+    width: 34%;
+    max-width: 600px;
+    padding-top: 100px;
+    padding-left: 100px;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+    background-color: rgb(0, 246, 255);
+}
+.project-side .fixed-box {
+    position: sticky;
+    top: 100px;
+}
+.project-side .project-heading {
+    margin-bottom: 70px;
+}
+
+.project-side .project-heading .num {
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.project-side .project-heading .title {
+    font-size: 3.75rem;
+    line-height: 1.05;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.project-side .project-heading .subtitle {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    letter-spacing: -1.2px;
+}
+
+.project-side .project-meta p {
+    font-size: 1.375rem;
+}
+
+.project-side .project-meta p:first-child {
+    margin-bottom: 20px;
+}
+
+.project-side .project-meta p b {
+    font-weight: 500;
+}
+
+
+.project .project-content {
+    width: 66%;
+    padding: 140px 0 100px 5%;
+    box-sizing: border-box;
+}
+
+.project-content .project-info .project-des {
+    font-size: 1.375rem;
+    display: flex;
+}
+
+.project-content .project-info .project-des:nth-child(2) {
+    margin: 20px 0 40px;
+}
+
+.project-content .project-info .project-des h4 {
+    width: 180px;
+    flex: 0 0 180px;
+    font-weight: 400;
+}
+
+.project-content .project-info .project-des ul {
+    line-height: 1.6;
+    flex-grow: 1;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+    letter-spacing: -0.6px;
+}
+
+.project-content .project-info .project-des p {
+    flex-grow: 1;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+    letter-spacing: -0.6px;
+}
+
+.project-content .project-info .video-box {
+    margin-left: 180px;
+    width: min(680px, 100%);
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.project-content .project-info iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+#info .project-side {
+    background-color: transparent;
+    border-right: 1px solid rgb(0, 246, 255);
+    color: rgb(0, 246, 255);
+}
+
+
+/*** //영상소개 페이지 끝 *****************************************************************************************/
+
+
+
+#contact {
+    position: relative;
+    /* #contact를 기준으로! */
+    border-bottom: none;
+}
+
+#contact .content {
+    /* position: absolute; */
+    /* .content 위치설정! */
+    /* left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); */
+    /* 중앙맞추기! */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact .content .sec-title {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+#contact .content .sec-title h2 {
+    font-size: 3.8rem;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 600;
+}
+
+#contact .content .sec-title p {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+#contact .content .personal {
+    /* padding-left: 40px; */
+}
+
+#contact .content .personal p {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+#contact .content .personal p b {
+    margin-right: 20px;
+    font-weight: 500;
+}
+
+#contact .content .personal a:hover {
+    text-decoration: underline;
+    color: #ff6500;
+}
+
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 50px 0;
+    text-align: center;
+}
+
+
+/* 반응형 */
+/* 테블릿 */
+@media (max-width: 1200px) {
+    html {font-size: 15px;}
+    header {padding: 0 20px;}
+    header .gnb {justify-content: center;}
+    header .gnb .gnb-menu {gap: 4px;}
+    header .gnb .gnb-menu li a {padding: 12px 24px; font-size: 18px; white-space: nowrap;}
+    
+    #home {background-position: top 20% right -50px; background-size: 720px auto;}
+    #home .title {left: 32px;}
+    #home .title .name p {font-size: 28px;}
+    #home .title .name h2 {font-size: 56px;}
+
+    .project .project-side {width: 32%; padding-top: 80px; padding-left: 32px; padding-right: 32px;}
+    .project-side .project-heading .num {font-size: 36px;}
+    .project-side .project-heading .title {font-size: 40px;}
+    .project-side .project-heading .subtitle {font-size: 32px;}
+    .project-side .project-meta p {font-size: 18px;}
+    .project-content .project-info .project-des {font-size: 20px;}
+    .project-content .project-info .video-box {margin-left: 0;}
+}
+/* 모바일 */
+@media (max-width:767px) {
+    html {font-size: 14px;}
+    header .gnb .gnb-menu {display: none;}
+    header .gnb .mobile-btn, header .gnb .mobile-menu {display: block;}
+
+    .page {border-bottom: none;}
+    #home {background-size: 492px auto; background-position: top 32px right -100px;}
+    #home .title {left: 20px; bottom: 60px;}
+    #home .title .name {margin-bottom: 14px;}
+    #home .title .name p {font-size: 22px;}
+    #home .title .name h2 {font-size: 36px;}
+    #home .title .des {font-size: 18px;}
+
+    section.project {display: block;}
+    .project .project-side {background: linear-gradient(to bottom,rgb(0, 246, 255),#dda1dd); width: 100%; max-width: none; padding: 72px 20px 60px;}
+    .project-side .fixed-box {display: flex; justify-content: space-between; align-items: center; gap: 16px;}
+    .project-side .project-heading {flex: 0 0 auto; margin-bottom: 0;}
+    .project-side .project-heading .title {font-size: 36px;}
+    .project-side .project-heading .subtitle {font-size: 24px;}
+    .project-side .project-meta {flex: 0 1 164px;}
+    .project-side .project-meta p {font-size: 16px;}
+    .project .project-content {width: 100%; padding: 20px 20px 60px;}
+    .project-content .project-info .project-des {display: block; font-size: 16px;}
+    .project-content .project-info .project-des h4 {width: auto; margin-bottom: 4px;}
+    #info .project-side {color: inherit;}
+
+    #contact .content .sec-title {margin-bottom: 24px;}
+    #contact .content .sec-title h2 {font-size: 36px; margin-bottom: 12px;}
+    #contact .content .sec-title p {font-size: 18px;}
+    #contact .content .personal p {font-size: 18px;}
+    footer {padding: 24px 0;}
+    footer .copy {font-size: 12px; font-weight: 300;}
+}
