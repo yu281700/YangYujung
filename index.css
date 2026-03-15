@@ -486,6 +486,7 @@ footer {
     .project-content .project-info .project-des {display: block; font-size: 16px;}
     .project-content .project-info .project-des h4 {width: auto; margin-bottom: 4px;}
     #info .project-side {color: inherit;}
+    #AI .project-side {color: inherit;}
 
     #contact .content .sec-title {margin-bottom: 24px;}
     #contact .content .sec-title h2 {font-size: 36px; margin-bottom: 12px;}
