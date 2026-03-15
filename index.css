@@ -480,7 +480,7 @@ footer {
     .project-side .project-heading {flex: 0 0 auto; margin-bottom: 0;}
     .project-side .project-heading .title {font-size: 36px;}
     .project-side .project-heading .subtitle {font-size: 24px;}
-    .project-side .project-meta {flex: 0 1 164px;}
+    .project-side .project-meta {flex: 1; min-width: 0;}
     .project-side .project-meta p {font-size: 16px;}
     .project .project-content {width: 100%; padding: 20px 20px 60px;}
     .project-content .project-info .project-des {display: block; font-size: 16px;}
