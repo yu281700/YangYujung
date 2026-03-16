@@ -476,7 +476,7 @@ footer {
 
     section.project {display: block;}
     .project .project-side {background: linear-gradient(to bottom,rgb(0, 246, 255),#dda1dd); width: 100%; max-width: none; padding: 72px 20px 60px;}
-    .project-side .fixed-box {display: flex; justify-content: space-between; align-items: center; gap: 16px;}
+    .project-side .fixed-box {display: flex; justify-content: space-between; align-items: column; gap: 16px;}
     .project-side .project-heading {flex: 0 0 auto; margin-bottom: 0;}
     .project-side .project-heading .title {font-size: 36px;}
     .project-side .project-heading .subtitle {font-size: 24px;}
